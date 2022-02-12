@@ -1,0 +1,19 @@
+{
+  "name": "vagrant-cli",
+  "version": "1.0.0",
+  "description": "Vagrant cli is easy way to Handler Vagrant files",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaxiGarcia13/vagrant-cli.git"
+  },
+  "author": "Maximiliano Daniel Garcia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaxiGarcia13/vagrant-cli/issues"
+  },
+  "homepage": "https://github.com/MaxiGarcia13/vagrant-cli#readme"
+}
