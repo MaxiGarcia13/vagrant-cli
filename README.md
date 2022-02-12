@@ -2,10 +2,10 @@
 
 The idea of this project it is a improve your experice working with multiple VagrantFile
 
-## How Install
+## How Install?
 
 ```
-npm i @maxigarcia/vagrant-cli
+npm i -g @maxigarcia/vagrant-cli
 ```
 
 ## How to use?
