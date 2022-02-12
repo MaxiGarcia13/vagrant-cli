@@ -1,8 +1,14 @@
 {
   "name": "@maxigarcia/vagrant-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Vagrant cli is easy way to Handler Vagrant files",
   "main": "./propmpt/handle_vagrantfile.js",
+  "files": [
+    "./bin",
+    "./constants",
+    "./prompt",
+    "./storage"
+  ],
   "scripts": {
     "handle-vagrantfile": "node ./prompt/handle_vagrantfile.js",
     "manage-vagrantfiles": "node ./prompt/manage_vagrantfile.js"
@@ -18,6 +24,7 @@
   },
   "homepage": "https://github.com/MaxiGarcia13/vagrant-cli#readme",
   "dependencies": {
+    "@maxigarcia/vagrant-cli": "^1.0.0",
     "inquirer": "^8.2.0"
   }
 }
