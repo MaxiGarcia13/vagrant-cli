@@ -4,8 +4,10 @@ const { isExist } = require('../bin/file_system');
 const { vagrantUp } = require('../bin/script_up');
 const { vagrantDown } = require('../bin/script_down');
 const { vagrantSsh } = require('../bin/script_ssh');
+const { vagrantRemove } = require('../bin/script_remove');
 
 const { STORAGE_PATH } = require('../constants/core');
+const { vagrantShowSshConfig } = require('../bin/script_show_ssh_config');
 
 const prompt = inquirer.createPromptModule();
 
@@ -13,11 +15,13 @@ const actions = {
   up: vagrantUp,
   down: vagrantDown,
   ssh: vagrantSsh,
+  remove: vagrantRemove,
+  'ssh-config': vagrantShowSshConfig,
 };
 
 /**
  *
- * @param {"up", "down", "ssh"} type
+ * @param {"up", "down", "ssh", "remove", "ssh-config"} type
  */
 const vagrant = async (type) => {
   if (!isExist(STORAGE_PATH)) {

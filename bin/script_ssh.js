@@ -1,10 +1,4 @@
-const { exec, spawn } = require('./exec');
-const { getLocations } = require('./locations');
-
-const getConfig = (arr, type) => {
-  const config = arr.find((ty) => ty.includes(type));
-  return config.replace(type, '').trim();
-};
+const { spawn } = require('./exec');
 
 const vagrantSsh = async (path) => {
   try {

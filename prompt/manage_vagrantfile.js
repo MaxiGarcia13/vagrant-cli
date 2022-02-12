@@ -22,7 +22,7 @@ const questions = [
   },
 ];
 
-const initCli = async () => {
+(async () => {
   const { what_i_do } = await prompt(questions);
   const action = actions[what_i_do];
 
@@ -31,6 +31,4 @@ const initCli = async () => {
   } catch (error) {
     console.error(error);
   }
-};
-
-module.exports = { initCli };
+})();

@@ -1,11 +1,11 @@
 {
-  "name": "vagrant-cli",
+  "name": "@maxigarcia/vagrant-cli",
   "version": "1.0.0",
   "description": "Vagrant cli is easy way to Handler Vagrant files",
   "main": "./propmpt/handle_vagrantfile.js",
   "scripts": {
-    "handle-vagrantfile": "node ./propmpt/handle_vagrantfile.js",
-    "manage-vagrantfiles": "node ./propmpt/manage_vagrantfile.js"
+    "handle-vagrantfile": "node ./prompt/handle_vagrantfile.js",
+    "manage-vagrantfiles": "node ./prompt/manage_vagrantfile.js"
   },
   "repository": {
     "type": "git",

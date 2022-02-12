@@ -19,6 +19,10 @@ module.exports = {
 
     const child = spawn(firstCommand, arguments, { stdio: 'inherit', cwd: path });
 
+    child.on('message', function (message) {
+      console.log(message);
+    });
+
     child.on('error', function (error) {
       console.log(error);
     });

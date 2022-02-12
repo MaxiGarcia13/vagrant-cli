@@ -5,7 +5,7 @@ const vagrantDown = async (path) => {
   try {
     console.log('🚦 Down vagrant');
 
-    const { moveToFileLocation, moveToCurrentDirectory } = await getLocations(path);
+    const { moveToFileLocation } = await getLocations(path);
 
     await exec(`${moveToFileLocation} && vagrant suspend`);
 
