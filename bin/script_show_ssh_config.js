@@ -1,4 +1,5 @@
 const { exec } = require('./exec');
+const { getLocations } = require('./locations');
 
 const vagrantShowSshConfig = async (path) => {
   try {
