@@ -1,18 +1,14 @@
 {
   "name": "@maxigarcia/vagrant-cli",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Vagrant cli is easy way to Handler Vagrant files",
   "main": "./dist/handle_vagrantfile.js",
   "files": [
     "/dist"
   ],
-  "bin": {
-    "handle-vagrantfile": "node ./dist/handle_vagrantfile.js",
-    "manage-vagrantfiles": "node ./dist/manage_vagrantfile.js"
-  },
   "scripts": {
-    "handle-vagrantfile": "node ./prompt/handle_vagrantfile.js",
-    "manage-vagrantfiles": "node ./prompt/manage_vagrantfile.js",
+    "handle-vagrantfile": "node ./dist/handle_vagrantfile.js",
+    "manage-vagrantfiles": "node ./dist/manage_vagrantfile.js",
     "build": "esbuild ./prompt/handle_vagrantfile.js --bundle --platform=node --outfile=./dist/handle_vagrantfile.js && esbuild ./prompt/manage_vagrantfile.js --bundle --platform=node --outfile=./dist/manage_vagrantfile.js",
     "up": "npm run build && npm publish --access=public"
   },

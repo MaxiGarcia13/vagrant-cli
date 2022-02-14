@@ -1,5 +1,4 @@
 /node_modules
-/dist
 
 storage/vagrantfile_locations.json
 package-lock.json
