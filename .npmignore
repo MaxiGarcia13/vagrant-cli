@@ -2,4 +2,4 @@
 
 .DS_Store
 package-lock.json
-storage/vagrantfile_locations.json
+/storage/vagrantfile_locations.json

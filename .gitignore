@@ -1,5 +1,5 @@
 /node_modules
 
-storage/vagrantfile_locations.json
+/storage/vagrantfile_locations.json
 package-lock.json
 .DS_Store
