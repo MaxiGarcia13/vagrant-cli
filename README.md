@@ -18,7 +18,7 @@ You can load existing vagrantfile for you use it to up, down, remove or connect 
 npx manage-vagrantfiles
 ```
 
-When you have vagrantfile loaded you can choose one for up, down, remove or connect by ssh.
+When you have vagrantfile loaded you can choose one to up, down, remove or connect by ssh.
 
 ```
 npx handle-vagrantfiles
