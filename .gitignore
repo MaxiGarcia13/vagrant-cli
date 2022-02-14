@@ -1,4 +1,6 @@
-package-lock.json
 /node_modules
-.DS_Store
+/dist
+
 storage/vagrantfile_locations.json
+package-lock.json
+.DS_Store
