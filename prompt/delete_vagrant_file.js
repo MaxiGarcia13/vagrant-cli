@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
-const { format } = require('../bin/date');
-const { isExist, writeFile } = require('../bin/file_system');
+const { format } = require('../scripts/date');
+const { isExist, writeFile } = require('../scripts/file_system');
 
 const { STORAGE_PATH } = require('../constants/core');
 

@@ -1,13 +1,13 @@
 const inquirer = require('inquirer');
-const { format } = require('../bin/date');
-const { isExist } = require('../bin/file_system');
-const { vagrantUp } = require('../bin/script_up');
-const { vagrantDown } = require('../bin/script_down');
-const { vagrantSsh } = require('../bin/script_ssh');
-const { vagrantRemove } = require('../bin/script_remove');
+const { format } = require('../scripts/date');
+const { isExist } = require('../scripts/file_system');
+const { vagrantUp } = require('../scripts/script_up');
+const { vagrantDown } = require('../scripts/script_down');
+const { vagrantSsh } = require('../scripts/script_ssh');
+const { vagrantRemove } = require('../scripts/script_remove');
 
 const { STORAGE_PATH } = require('../constants/core');
-const { vagrantShowSshConfig } = require('../bin/script_show_ssh_config');
+const { vagrantShowSshConfig } = require('../scripts/script_show_ssh_config');
 
 const prompt = inquirer.createPromptModule();
 
@@ -36,6 +36,7 @@ const vagrant = async (type) => {
     {
       type: 'list',
       name: 'name',
+      message: 'Choose vagrantfile',
       choices: Object.keys(storageData).map((key) => ({
         name: `${key} created: ${format(storageData[key].ts)}`,
         value: key,

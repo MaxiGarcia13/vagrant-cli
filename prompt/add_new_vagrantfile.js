@@ -1,5 +1,5 @@
 const inquirer = require('inquirer');
-const { writeFile, isExist } = require('../bin/file_system');
+const { writeFile, isExist } = require('../scripts/file_system');
 
 const { STORAGE_PATH } = require('../constants/core');
 
@@ -15,10 +15,10 @@ const questions = [
   {
     type: 'input',
     name: 'path',
-    message: 'Path of the vagrantfile:',
+    message: `Vagrantfile path (does not work with "~" 🥺):`,
     validate: (input) => {
       const rgx = new RegExp('^.*/');
-      return rgx.test(input);
+      return input[0] !== '~' && rgx.test(input);
     },
   },
 ];
