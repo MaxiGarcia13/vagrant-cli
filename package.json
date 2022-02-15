@@ -1,6 +1,6 @@
 {
   "name": "@maxigarcia/vagrant-cli",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "Vagrant cli is easy way to Handler Vagrant files",
   "main": "./dist/handle_vagrantfile.js",
   "files": [
