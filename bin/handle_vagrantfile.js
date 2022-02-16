@@ -1002,11 +1002,11 @@ var require_ansi_styles = __commonJS({
       const offset = isBackground ? 10 : 0;
       const styles = {};
       for (const [sourceSpace, suite] of Object.entries(colorConvert)) {
-        const name = sourceSpace === "ansi16" ? "ansi" : sourceSpace;
+        const name2 = sourceSpace === "ansi16" ? "ansi" : sourceSpace;
         if (sourceSpace === targetSpace) {
-          styles[name] = wrap(identity, offset);
+          styles[name2] = wrap(identity, offset);
         } else if (typeof suite === "object") {
-          styles[name] = wrap(suite[targetSpace], offset);
+          styles[name2] = wrap(suite[targetSpace], offset);
         }
       }
       return styles;
@@ -1184,10 +1184,10 @@ var require_supports_color = __commonJS({
         return 3;
       }
       if ("TERM_PROGRAM" in env) {
-        const version = parseInt((env.TERM_PROGRAM_VERSION || "").split(".")[0], 10);
+        const version2 = parseInt((env.TERM_PROGRAM_VERSION || "").split(".")[0], 10);
         switch (env.TERM_PROGRAM) {
           case "iTerm.app":
-            return version >= 3 ? 3 : 2;
+            return version2 >= 3 ? 3 : 2;
           case "Apple_Terminal":
             return 2;
         }
@@ -1285,7 +1285,7 @@ var require_templates = __commonJS({
       }
       return ESCAPES.get(c) || c;
     }
-    function parseArguments(name, arguments_) {
+    function parseArguments(name2, arguments_) {
       const results = [];
       const chunks = arguments_.trim().split(/\s*,\s*/g);
       let matches;
@@ -1296,7 +1296,7 @@ var require_templates = __commonJS({
         } else if (matches = chunk.match(STRING_REGEX)) {
           results.push(matches[2].replace(ESCAPE_REGEX, (m, escape, character) => escape ? unescape(escape) : character));
         } else {
-          throw new Error(`Invalid Chalk template style argument: ${chunk} (in style '${name}')`);
+          throw new Error(`Invalid Chalk template style argument: ${chunk} (in style '${name2}')`);
         }
       }
       return results;
@@ -1306,12 +1306,12 @@ var require_templates = __commonJS({
       const results = [];
       let matches;
       while ((matches = STYLE_REGEX.exec(style)) !== null) {
-        const name = matches[1];
+        const name2 = matches[1];
         if (matches[2]) {
-          const args = parseArguments(name, matches[2]);
-          results.push([name].concat(args));
+          const args = parseArguments(name2, matches[2]);
+          results.push([name2].concat(args));
         } else {
-          results.push([name]);
+          results.push([name2]);
         }
       }
       return results;
@@ -14910,7 +14910,7 @@ var require_prompt = __commonJS({
           this.answers = {};
         }
         if (_.isPlainObject(questions2)) {
-          questions2 = Object.values(questions2).every((v) => _.isPlainObject(v) && v.name === void 0) ? Object.entries(questions2).map(([name, question]) => ({ name, ...question })) : [questions2];
+          questions2 = Object.values(questions2).every((v) => _.isPlainObject(v) && v.name === void 0) ? Object.entries(questions2).map(([name2, question]) => ({ name: name2, ...question })) : [questions2];
         }
         const obs = _.isArray(questions2) ? from(questions2) : questions2;
         this.process = obs.pipe(concatMap(this.processQuestion.bind(this)), publish());
@@ -18715,10 +18715,10 @@ var require_errors = __commonJS({
         return str.indexOf(search, start) !== -1;
       }
     }
-    createErrorType("ERR_INVALID_OPT_VALUE", function(name, value) {
-      return 'The value "' + value + '" is invalid for option "' + name + '"';
+    createErrorType("ERR_INVALID_OPT_VALUE", function(name2, value) {
+      return 'The value "' + value + '" is invalid for option "' + name2 + '"';
     }, TypeError);
-    createErrorType("ERR_INVALID_ARG_TYPE", function(name, expected, actual) {
+    createErrorType("ERR_INVALID_ARG_TYPE", function(name2, expected, actual) {
       let determiner;
       if (typeof expected === "string" && startsWith(expected, "not ")) {
         determiner = "must not be";
@@ -18727,22 +18727,22 @@ var require_errors = __commonJS({
         determiner = "must be";
       }
       let msg;
-      if (endsWith(name, " argument")) {
-        msg = `The ${name} ${determiner} ${oneOf(expected, "type")}`;
+      if (endsWith(name2, " argument")) {
+        msg = `The ${name2} ${determiner} ${oneOf(expected, "type")}`;
       } else {
-        const type = includes(name, ".") ? "property" : "argument";
-        msg = `The "${name}" ${type} ${determiner} ${oneOf(expected, "type")}`;
+        const type = includes(name2, ".") ? "property" : "argument";
+        msg = `The "${name2}" ${type} ${determiner} ${oneOf(expected, "type")}`;
       }
       msg += `. Received type ${typeof actual}`;
       return msg;
     }, TypeError);
     createErrorType("ERR_STREAM_PUSH_AFTER_EOF", "stream.push() after EOF");
-    createErrorType("ERR_METHOD_NOT_IMPLEMENTED", function(name) {
-      return "The " + name + " method is not implemented";
+    createErrorType("ERR_METHOD_NOT_IMPLEMENTED", function(name2) {
+      return "The " + name2 + " method is not implemented";
     });
     createErrorType("ERR_STREAM_PREMATURE_CLOSE", "Premature close");
-    createErrorType("ERR_STREAM_DESTROYED", function(name) {
-      return "Cannot call " + name + " after a stream was destroyed";
+    createErrorType("ERR_STREAM_DESTROYED", function(name2) {
+      return "Cannot call " + name2 + " after a stream was destroyed";
     });
     createErrorType("ERR_MULTIPLE_CALLBACK", "Callback called multiple times");
     createErrorType("ERR_STREAM_CANNOT_PIPE", "Cannot pipe, not readable");
@@ -18768,8 +18768,8 @@ var require_state = __commonJS({
       var hwm = highWaterMarkFrom(options, isDuplex, duplexKey);
       if (hwm != null) {
         if (!(isFinite(hwm) && Math.floor(hwm) === hwm) || hwm < 0) {
-          var name = isDuplex ? duplexKey : "highWaterMark";
-          throw new ERR_INVALID_OPT_VALUE(name, hwm);
+          var name2 = isDuplex ? duplexKey : "highWaterMark";
+          throw new ERR_INVALID_OPT_VALUE(name2, hwm);
         }
         return Math.floor(hwm);
       }
@@ -22015,8 +22015,8 @@ var require_base = __commonJS({
       _run(cb) {
         cb();
       }
-      throwParamError(name) {
-        throw new Error("You must provide a `" + name + "` parameter");
+      throwParamError(name2) {
+        throw new Error("You must provide a `" + name2 + "` parameter");
       }
       close() {
         this.screen.releaseCursor();
@@ -23219,9 +23219,9 @@ var require_password = __commonJS({
 // node_modules/chardet/match.js
 var require_match = __commonJS({
   "node_modules/chardet/match.js"(exports, module2) {
-    module2.exports = function(det, rec, confidence, name, lang) {
+    module2.exports = function(det, rec, confidence, name2, lang) {
       this.confidence = confidence;
-      this.name = name || rec.name(det);
+      this.name = name2 || rec.name(det);
       this.lang = lang;
     };
   }
@@ -24194,8 +24194,8 @@ var require_sbcs = __commonJS({
           lang = ngl.fLang;
         }
       }
-      var name = this.name(det);
-      return bestConfidenceSoFar <= 0 ? null : new Match(det, this, bestConfidenceSoFar, name, lang);
+      var name2 = this.name(det);
+      return bestConfidenceSoFar <= 0 ? null : new Match(det, this, bestConfidenceSoFar, name2, lang);
     };
     module2.exports.ISO_8859_1 = function() {
       this.byteMap = function() {
@@ -32099,13 +32099,13 @@ var require_tmp = __commonJS({
       if (opts.template) {
         return opts.template.replace(TEMPLATE_PATTERN, _randomChars(6));
       }
-      const name = [
+      const name2 = [
         opts.prefix || "tmp-",
         process.pid,
         _randomChars(12),
         opts.postfix || ""
       ].join("");
-      return path.join(opts.dir || tmpDir, name);
+      return path.join(opts.dir || tmpDir, name2);
     }
     function tmpName(options, callback) {
       var args = _parseArguments(options, callback), opts = args[0], cb = args[1], tries = opts.name ? 1 : opts.tries || DEFAULT_TRIES;
@@ -32114,14 +32114,14 @@ var require_tmp = __commonJS({
       if (opts.template && !opts.template.match(TEMPLATE_PATTERN))
         return cb(new Error("Invalid template provided"));
       (function _getUniqueName() {
-        const name = _generateTmpName(opts);
-        fs.stat(name, function(err) {
+        const name2 = _generateTmpName(opts);
+        fs.stat(name2, function(err) {
           if (!err) {
             if (tries-- > 0)
               return _getUniqueName();
-            return cb(new Error("Could not get a unique tmp filename, max tries reached " + name));
+            return cb(new Error("Could not get a unique tmp filename, max tries reached " + name2));
           }
-          cb(null, name);
+          cb(null, name2);
         });
       })();
     }
@@ -32132,11 +32132,11 @@ var require_tmp = __commonJS({
       if (opts.template && !opts.template.match(TEMPLATE_PATTERN))
         throw new Error("Invalid template provided");
       do {
-        const name = _generateTmpName(opts);
+        const name2 = _generateTmpName(opts);
         try {
-          fs.statSync(name);
+          fs.statSync(name2);
         } catch (e) {
-          return name;
+          return name2;
         }
       } while (tries-- > 0);
       throw new Error("Could not get a unique tmp filename, max tries reached");
@@ -32144,17 +32144,17 @@ var require_tmp = __commonJS({
     function file(options, callback) {
       var args = _parseArguments(options, callback), opts = args[0], cb = args[1];
       opts.postfix = _isUndefined(opts.postfix) ? ".tmp" : opts.postfix;
-      tmpName(opts, function _tmpNameCreated(err, name) {
+      tmpName(opts, function _tmpNameCreated(err, name2) {
         if (err)
           return cb(err);
-        fs.open(name, CREATE_FLAGS, opts.mode || FILE_MODE, function _fileCreated(err2, fd) {
+        fs.open(name2, CREATE_FLAGS, opts.mode || FILE_MODE, function _fileCreated(err2, fd) {
           if (err2)
             return cb(err2);
           if (opts.discardDescriptor) {
             return fs.close(fd, function _discardCallback(err3) {
               if (err3) {
                 try {
-                  fs.unlinkSync(name);
+                  fs.unlinkSync(name2);
                 } catch (e) {
                   if (!isENOENT(e)) {
                     err3 = e;
@@ -32162,13 +32162,13 @@ var require_tmp = __commonJS({
                 }
                 return cb(err3);
               }
-              cb(null, name, void 0, _prepareTmpFileRemoveCallback(name, -1, opts));
+              cb(null, name2, void 0, _prepareTmpFileRemoveCallback(name2, -1, opts));
             });
           }
           if (opts.detachDescriptor) {
-            return cb(null, name, fd, _prepareTmpFileRemoveCallback(name, -1, opts));
+            return cb(null, name2, fd, _prepareTmpFileRemoveCallback(name2, -1, opts));
           }
-          cb(null, name, fd, _prepareTmpFileRemoveCallback(name, fd, opts));
+          cb(null, name2, fd, _prepareTmpFileRemoveCallback(name2, fd, opts));
         });
       });
     }
@@ -32176,16 +32176,16 @@ var require_tmp = __commonJS({
       var args = _parseArguments(options), opts = args[0];
       opts.postfix = opts.postfix || ".tmp";
       const discardOrDetachDescriptor = opts.discardDescriptor || opts.detachDescriptor;
-      const name = tmpNameSync(opts);
-      var fd = fs.openSync(name, CREATE_FLAGS, opts.mode || FILE_MODE);
+      const name2 = tmpNameSync(opts);
+      var fd = fs.openSync(name2, CREATE_FLAGS, opts.mode || FILE_MODE);
       if (opts.discardDescriptor) {
         fs.closeSync(fd);
         fd = void 0;
       }
       return {
-        name,
+        name: name2,
         fd,
-        removeCallback: _prepareTmpFileRemoveCallback(name, discardOrDetachDescriptor ? -1 : fd, opts)
+        removeCallback: _prepareTmpFileRemoveCallback(name2, discardOrDetachDescriptor ? -1 : fd, opts)
       };
     }
     function _rmdirRecursiveSync(root) {
@@ -32211,26 +32211,26 @@ var require_tmp = __commonJS({
     }
     function dir(options, callback) {
       var args = _parseArguments(options, callback), opts = args[0], cb = args[1];
-      tmpName(opts, function _tmpNameCreated(err, name) {
+      tmpName(opts, function _tmpNameCreated(err, name2) {
         if (err)
           return cb(err);
-        fs.mkdir(name, opts.mode || DIR_MODE, function _dirCreated(err2) {
+        fs.mkdir(name2, opts.mode || DIR_MODE, function _dirCreated(err2) {
           if (err2)
             return cb(err2);
-          cb(null, name, _prepareTmpDirRemoveCallback(name, opts));
+          cb(null, name2, _prepareTmpDirRemoveCallback(name2, opts));
         });
       });
     }
     function dirSync(options) {
       var args = _parseArguments(options), opts = args[0];
-      const name = tmpNameSync(opts);
-      fs.mkdirSync(name, opts.mode || DIR_MODE);
+      const name2 = tmpNameSync(opts);
+      fs.mkdirSync(name2, opts.mode || DIR_MODE);
       return {
-        name,
-        removeCallback: _prepareTmpDirRemoveCallback(name, opts)
+        name: name2,
+        removeCallback: _prepareTmpDirRemoveCallback(name2, opts)
       };
     }
-    function _prepareTmpFileRemoveCallback(name, fd, opts) {
+    function _prepareTmpFileRemoveCallback(name2, fd, opts) {
       const removeCallback = _prepareRemoveCallback(function _removeCallback(fdPath) {
         try {
           if (0 <= fdPath[0]) {
@@ -32248,15 +32248,15 @@ var require_tmp = __commonJS({
             throw e;
           }
         }
-      }, [fd, name]);
+      }, [fd, name2]);
       if (!opts.keep) {
         _removeObjects.unshift(removeCallback);
       }
       return removeCallback;
     }
-    function _prepareTmpDirRemoveCallback(name, opts) {
+    function _prepareTmpDirRemoveCallback(name2, opts) {
       const removeFunction = opts.unsafeCleanup ? _rmdirRecursiveSync : fs.rmdirSync.bind(fs);
-      const removeCallback = _prepareRemoveCallback(removeFunction, name);
+      const removeCallback = _prepareRemoveCallback(removeFunction, name2);
       if (!opts.keep) {
         _removeObjects.unshift(removeCallback);
       }
@@ -32300,10 +32300,10 @@ var require_tmp = __commonJS({
     function setGracefulCleanup() {
       _gracefulCleanup = true;
     }
-    var version = process.versions.node.split(".").map(function(value) {
+    var version2 = process.versions.node.split(".").map(function(value) {
       return parseInt(value, 10);
     });
-    if (version[0] === 0 && (version[1] < 9 || version[1] === 9 && version[2] < 5)) {
+    if (version2[0] === 0 && (version2[1] < 9 || version2[1] === 9 && version2[2] < 5)) {
       process.addListener("uncaughtException", function _uncaughtExceptionThrown(err) {
         _uncaughtException = true;
         _garbageCollector();
@@ -32777,8 +32777,8 @@ var require_inquirer = __commonJS({
         return promise;
       };
       promptModule.prompts = {};
-      promptModule.registerPrompt = function(name, prompt2) {
-        promptModule.prompts[name] = prompt2;
+      promptModule.registerPrompt = function(name2, prompt2) {
+        promptModule.prompts[name2] = prompt2;
         return this;
       };
       promptModule.restoreDefaultPrompts = function() {
@@ -32796,11 +32796,54 @@ var require_inquirer = __commonJS({
       return promptModule;
     };
     inquirer2.prompt = inquirer2.createPromptModule();
-    inquirer2.registerPrompt = function(name, prompt2) {
-      inquirer2.prompt.registerPrompt(name, prompt2);
+    inquirer2.registerPrompt = function(name2, prompt2) {
+      inquirer2.prompt.registerPrompt(name2, prompt2);
     };
     inquirer2.restoreDefaultPrompts = function() {
       inquirer2.prompt.restoreDefaultPrompts();
+    };
+  }
+});
+
+// package.json
+var require_package = __commonJS({
+  "package.json"(exports, module2) {
+    module2.exports = {
+      name: "@maxigarcia/vagrant-cli",
+      version: "1.2.8",
+      description: "Vagrant cli is easy way to Handler Vagrant files",
+      main: "./dist/handle_vagrantfile.js",
+      files: [
+        "/dist",
+        "/bin",
+        "/storage"
+      ],
+      bin: {
+        "handle-vagrantfile": "bin/handle_vagrantfile.js",
+        "manage-vagrantfiles": "bin/manage_vagrantfile.js"
+      },
+      scripts: {
+        "handle-vagrantfile": "node ./prompt/handle_vagrantfile.js",
+        "manage-vagrantfiles": "node ./prompt/manage_vagrantfile.js",
+        build: "esbuild ./prompt/handle_vagrantfile.js --bundle --platform=node --outfile=./bin/handle_vagrantfile.js && esbuild ./prompt/manage_vagrantfile.js --bundle --platform=node --outfile=./bin/manage_vagrantfile.js",
+        up: "npm run build && npm publish --access=public"
+      },
+      repository: {
+        type: "git",
+        url: "git+https://github.com/MaxiGarcia13/vagrant-cli.git"
+      },
+      author: "Maximiliano Daniel Garcia",
+      license: "ISC",
+      bugs: {
+        url: "https://github.com/MaxiGarcia13/vagrant-cli/issues"
+      },
+      homepage: "https://github.com/MaxiGarcia13/vagrant-cli#readme",
+      dependencies: {
+        inquirer: "^8.2.0"
+      },
+      devDependencies: {
+        esbuild: "^0.14.21"
+      }
     };
   }
 });
@@ -32976,6 +33019,25 @@ var require_script_remove = __commonJS({
   }
 });
 
+// scripts/script_reload.js
+var require_script_reload = __commonJS({
+  "scripts/script_reload.js"(exports, module2) {
+    var { exec } = require_exec();
+    var { getLocations } = require_locations();
+    var vagrantReload = async (path) => {
+      try {
+        console.log("\u2699\uFE0F  Reload vagrant");
+        const { moveToFileLocation } = await getLocations(path);
+        await exec(`${moveToFileLocation} && vagrant reload`);
+        console.log("Succes \u{1F389}");
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    module2.exports = { vagrantReload };
+  }
+});
+
 // constants/core.js
 var require_core = __commonJS({
   "constants/core.js"(exports, module2) {
@@ -33014,6 +33076,7 @@ var require_vagrant_command = __commonJS({
     var { vagrantDown } = require_script_down();
     var { vagrantSsh } = require_script_ssh();
     var { vagrantRemove } = require_script_remove();
+    var { vagrantReload } = require_script_reload();
     var { STORAGE_PATH } = require_core();
     var { vagrantShowSshConfig } = require_script_show_ssh_config();
     var prompt2 = inquirer2.createPromptModule();
@@ -33022,6 +33085,7 @@ var require_vagrant_command = __commonJS({
       down: vagrantDown,
       ssh: vagrantSsh,
       remove: vagrantRemove,
+      reload: vagrantReload,
       "ssh-config": vagrantShowSshConfig
     };
     var vagrant2 = async (type) => {
@@ -33042,8 +33106,8 @@ var require_vagrant_command = __commonJS({
         }
       ];
       try {
-        const { name } = await prompt2(questions2);
-        const { path } = storageData[name];
+        const { name: name2 } = await prompt2(questions2);
+        const { path } = storageData[name2];
         await action(path);
       } catch (error) {
         throw error;
@@ -33055,16 +33119,19 @@ var require_vagrant_command = __commonJS({
 
 // prompt/handle_vagrantfile.js
 var inquirer = require_inquirer();
+var { name, version } = require_package();
 var { vagrant } = require_vagrant_command();
 var prompt = inquirer.createPromptModule();
-var UP = "UP";
+var UP = "Up";
 var DOWN = "Down";
+var RELOAD = "Reload";
 var SSH = "SSH";
 var SHOW_VAGRANTFILE_CONFIG = "Show ssh config";
 var actions = {
   [UP]: () => vagrant("up"),
   [SSH]: () => vagrant("ssh"),
   [DOWN]: () => vagrant("down"),
+  [RELOAD]: () => vagrant("reload"),
   [SHOW_VAGRANTFILE_CONFIG]: () => vagrant("ssh-config")
 };
 var questions = [
@@ -33072,14 +33139,10 @@ var questions = [
     type: "list",
     name: "what_i_do",
     message: "What do you want to do?",
-    choices: [
-      UP,
-      SSH,
-      DOWN,
-      SHOW_VAGRANTFILE_CONFIG
-    ]
+    choices: [UP, SSH, DOWN, RELOAD, SHOW_VAGRANTFILE_CONFIG]
   }
 ];
+console.log(`\u2657 ${name} (v${version})`);
 (async () => {
   const { what_i_do } = await prompt(questions);
   const action = actions[what_i_do];
