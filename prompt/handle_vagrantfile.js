@@ -1,6 +1,6 @@
 #! /usr/bin/env node
 const inquirer = require('inquirer');
-
+const { name, version } = require('../package.json');
 const { vagrant } = require('./vagrant_command');
 
 const prompt = inquirer.createPromptModule();
@@ -28,6 +28,7 @@ const questions = [
   },
 ];
 
+console.log(`♗ ${name} (v${version})`);
 (async () => {
   const { what_i_do } = await prompt(questions);
   const action = actions[what_i_do];

@@ -1,5 +1,6 @@
 #! /usr/bin/env node
 const inquirer = require('inquirer');
+const { name, version } = require('../package.json');
 
 const { addNewVagrantFile } = require('./add_new_vagrantfile');
 const { deleteVagrantFile } = require('./delete_vagrant_file');
@@ -23,6 +24,7 @@ const questions = [
   },
 ];
 
+console.log(`♗ ${name} (v${version})`);
 (async () => {
   const { what_i_do } = await prompt(questions);
   const action = actions[what_i_do];
