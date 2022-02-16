@@ -5,6 +5,7 @@ const { vagrantUp } = require('../scripts/script_up');
 const { vagrantDown } = require('../scripts/script_down');
 const { vagrantSsh } = require('../scripts/script_ssh');
 const { vagrantRemove } = require('../scripts/script_remove');
+const { vagrantReload } = require('../scripts/script_reload');
 
 const { STORAGE_PATH } = require('../constants/core');
 const { vagrantShowSshConfig } = require('../scripts/script_show_ssh_config');
@@ -16,12 +17,13 @@ const actions = {
   down: vagrantDown,
   ssh: vagrantSsh,
   remove: vagrantRemove,
+  reload: vagrantReload,
   'ssh-config': vagrantShowSshConfig,
 };
 
 /**
  *
- * @param {"up", "down", "ssh", "remove", "ssh-config"} type
+ * @param {"up", "down", "ssh", "remove", "reload", "ssh-config"} type
  */
 const vagrant = async (type) => {
   if (!isExist(STORAGE_PATH)) {
